@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-function Color({hex, color, history}) {
-  if (!hex) {
-    history.push("/colors");
-  }
-
+function Color() {
+//   if (!hex) {
+//     history.push("/colors");
+//   }
+const {color} = useParams();
   return (
-    <div className="Color" style={{ backgroundColor: hex }}>
+    <div className="Color" style={{ backgroundColor: color}}>
       <p>{color}</p>
         <Link to="/">Go back</Link>
     </div>

@@ -15,6 +15,7 @@ function Routes() {
   const [colors, setColors] = useState(initColors);
 
   function displayColor(propColor) {
+    console.log(propColor);
     let { color } = propColor.match.params;
     let hexCode = colors[color];
     return <Color {...propColor} hex={hexCode} color={color} />;
@@ -33,8 +34,10 @@ function Routes() {
         <Route exact path="/colors/new">
           <NewColorForm addColor={add} />
         </Route>
-        <Route path="/colors/:color" display={displayColor} />
-        <Redirect />
+        <Route path="/colors/:color" >
+           <Color display={displayColor} />
+        </Route>
+        <Redirect to="/colors"/>
       </Switch>
     </BrowserRouter>
   );
